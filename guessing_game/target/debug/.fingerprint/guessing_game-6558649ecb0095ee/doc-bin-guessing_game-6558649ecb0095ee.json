@@ -1,0 +1,1 @@
+{"rustc":3409524444662720818,"features":"[]","target":3208674433387072289,"profile":11797192095052096607,"path":1036222786711178230,"deps":[["rand v0.3.22","rand",5007345973287809718],["rand v0.3.22","rand",15476232208846856520]],"local":[{"Precalculated":"1542449466.815970980s (/home/calin/Playground/rust/guessing_game/src/main.rs)"}],"rustflags":[],"edition":"Edition2015"}
