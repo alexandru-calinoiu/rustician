@@ -1,0 +1,6 @@
+[package]
+name = "variables"
+version = "0.1.0"
+authors = ["Calinoiu Alexandru Nicolae <calinoiu.alexandru@agilefreaks.com>"]
+
+[dependencies]
