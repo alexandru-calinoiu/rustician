@@ -1,0 +1,1 @@
+/home/calin/Playground/rust/commnicator/target/debug/libcommnicator.rlib: /home/calin/Playground/rust/commnicator/src/client.rs /home/calin/Playground/rust/commnicator/src/lib.rs /home/calin/Playground/rust/commnicator/src/network/mod.rs /home/calin/Playground/rust/commnicator/src/network/server.rs
