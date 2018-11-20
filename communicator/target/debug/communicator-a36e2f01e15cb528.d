@@ -1,0 +1,1 @@
+/home/calin/Playground/rust/communicator/target/debug/communicator-a36e2f01e15cb528: /home/calin/Playground/rust/communicator/src/client.rs /home/calin/Playground/rust/communicator/src/lib.rs /home/calin/Playground/rust/communicator/src/main.rs /home/calin/Playground/rust/communicator/src/network/mod.rs /home/calin/Playground/rust/communicator/src/network/server.rs
