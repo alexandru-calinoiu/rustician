@@ -1,0 +1,1 @@
+/home/calin/Playground/rust/communicator/target/rls/debug/libcommunicator-99006dac3b4eb2e3.rmeta: /home/calin/Playground/rust/communicator/src/client.rs /home/calin/Playground/rust/communicator/src/lib.rs /home/calin/Playground/rust/communicator/src/network/mod.rs /home/calin/Playground/rust/communicator/src/network/server.rs
