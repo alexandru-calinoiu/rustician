@@ -1,6 +1,59 @@
+use std::collections::HashMap;
+
 fn main() {
     vector();
     string();
+    hash_map();
+}
+
+fn hash_map() {
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("blue"), 50);
+    scores.insert(String::from("red"), 20);
+    println!("{:?}", scores);
+
+    let teams = vec![String::from("blue"), String::from("red")];
+    let initial_scores = vec![50, 20];
+
+    let scores: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
+    println!("{:?}", scores);
+
+    let field_name = String::from("Favorite color");
+    let field_value = String::from("greed");
+
+    let mut map = HashMap::new();
+    map.insert(field_name, field_value);
+
+    // println!("{}", field_name); will fail compile
+    let team_name = String::from("blue");
+    match scores.get(&team_name) {
+        Some(score) => println!("The score for team {} is {}", team_name, score),
+        None => println!("Could not find a score for team {}", team_name)
+    };
+
+    for (key, value) in &scores {
+        println!("{}: {}", key, value);
+    }
+
+    let color_key = String::from("Favorite color");
+    map.insert(color_key, String::from("green"));
+    println!("{:?}", map);
+
+    let color_key = String::from("Favorite color");
+    map.entry(color_key).or_insert(String::from("blue"));
+    map.entry(String::from("Favorite pet")).or_insert(String::from("cat"));
+    println!("{:?}", map);
+
+    let text = "hello world wonderful world";
+    let mut word_count = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = word_count.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{:?}", word_count);
 }
 
 fn string() {
