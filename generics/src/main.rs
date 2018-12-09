@@ -1,17 +1,20 @@
+use std::cmp::PartialOrd;
+use std::fmt::Display;
+
 #[derive(Debug)]
 struct Point<T, U> {
     x: T,
-    y: U
+    y: U,
 }
 
 enum Option<T> {
     Ok(T),
-    None
+    None,
 }
 
 enum Result<T, E> {
     Ok(T),
-    Err(E)
+    Err(E),
 }
 
 impl<T, U> Point<T, U> {
@@ -19,10 +22,62 @@ impl<T, U> Point<T, U> {
         &self.x
     }
 
-    fn mixup<V, W>(&self, other: Point<V, W>) -> Point<T, W> {
+    fn mixup<V, W>(self, other: Point<V, W>) -> Point<T, W> {
         Point {
             x: self.x,
-            y: other.y
+            y: other.y,
+        }
+    }
+}
+
+trait Summary {
+    fn summarize(&self) -> String {
+        String::from("Read more ...")
+    }
+}
+
+struct NewsArticle {
+    headline: String,
+    content: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+        format!("headline: {}, content: {}", self.headline, self.content)
+    }
+}
+
+struct Tweet {
+    username: String,
+    content: String,
+}
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{} {}", self.username, self.content)
+    }
+}
+
+struct Pair<T> {
+    x: T,
+    y: T
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self {
+            x: x,
+            y: y
+        }
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest number is x = {}", self.x);
+        } else {
+            println!("The largest number is y  = {}", self.y);
         }
     }
 }
@@ -39,19 +94,26 @@ fn main() {
     let point_int_and_float = Point { x: 1, y: 2.0 };
 
     println!("p.x = {}", point_int.x());
+    println!("p.y = {}", point_int_and_float.y);
 
     let point_char = Point { x: 'a', y: 'b' };
     println!("{:?}", point_float.mixup(point_char));
+
+    let pair = Pair::new(10, 9);
+    pair.cmp_display();
 }
 
-fn largest_number<T>(list: &[T]) -> T {
+fn largest_number<T>(list: &[T]) -> T
+where
+    T: PartialOrd + Copy,
+{
     let mut largest: T = list[0];
 
     for &element in list {
         if element > largest {
             largest = element;
         }
-    };
+    }
 
-    return largest;    
+    return largest;
 }
